@@ -1,6 +1,6 @@
-import api from '$lib/api';
-import { Method } from '../types';
 import { error } from '@sveltejs/kit';
+import api from '$lib/api';
+import { Method } from '../../enums';
 
 export const load = async () => {
 	const res = await api(Method.Get);
