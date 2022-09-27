@@ -3,4 +3,4 @@
 	$: hello = data.hello;
 </script>
 
-<h2>{hello.message}</h2>
+<h1 class="title">{hello.message}</h1>

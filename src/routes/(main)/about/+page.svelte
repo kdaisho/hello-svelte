@@ -1,3 +1,1 @@
-<header>
-	<h1>About Us</h1>
-</header>
+<h1 class="title">About Us</h1>

@@ -1,7 +1,60 @@
+:root {
+	--primary-color: #0f682d;
+	--secondary-color: #f1f5f0;
+
+	--color: #333;
+	--font-size-xlarge: 2rem;
+	--font-size-large: 1.25rem;
+	--font-primary: 'Space Grotesk', sans-serif;
+	--font-secondary: 'Inter', sans-serif;
+
+	--box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+	--box-shadow-small: rgba(100, 100, 111, 0.4) 0 2px 6px 0;
+
+	--border-radius: 5px;
+}
+
 body {
+	background: var(--secondary-color);
+
 	* {
-		font-family: sans-serif;
+		color: var(--color);
+		font-family: var(--font-secondary);
 		margin: 0;
 		padding: 0;
+	}
+
+	.title {
+		font-family: var(--font-primary);
+		font-size: var(--font-size-xlarge);
+	}
+
+	button {
+		&:hover {
+			cursor: pointer;
+		}
+		&.btn-primary {
+			background: var(--primary-color);
+			border: 1px solid var(--primary-color);
+			border-radius: var(--border-radius);
+			box-shadow: var(--box-shadow-small);
+			width: 80px;
+
+			a {
+				display: block;
+				padding: 0.35rem 0;
+				color: #fff;
+			}
+		}
+	}
+
+	.card {
+		background: #fff;
+		border-radius: var(--border-radius);
+		box-shadow: var(--box-shadow);
+		display: flex;
+		flex-flow: column nowrap;
+		gap: 0.75rem 0;
+		padding: 1.25rem 1.75rem;
 	}
 }

@@ -5,8 +5,17 @@
 	$: product = data.product;
 </script>
 
-<header>
-	<h1>Product {product?.id}</h1>
-</header>
+<div class="card">
+	<h1 class="title">{product.name}</h1>
+	<p>{product.description}</p>
+</div>
 
-<main />
+<div class="footer">
+	<a href="/products">← All products </a>
+</div>
+
+<style lang="scss">
+	.footer {
+		margin-top: 3rem;
+	}
+</style>
