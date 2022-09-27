@@ -1,15 +1,16 @@
-import api from "$lib/api";
-import { error } from "@sveltejs/kit";
+import api from '$lib/api';
+import { Method } from '../types';
+import { error } from '@sveltejs/kit';
 
 export const load = async () => {
-  const res = await api("GET");
+	const res = await api(Method.Get);
 
-  if (res.status === 200) {
-    return {
-      hello: await res.json(),
-    };
-  }
+	if (res.status === 200) {
+		return {
+			hello: await res.json()
+		};
+	}
 
-  // handles unknown errors by rendering the nearest +error.svelte
-  throw error(res.status);
+	// handles unknown errors by rendering the nearest +error.svelte
+	throw error(res.status);
 };
