@@ -1,20 +1,42 @@
-# create-svelte
+# SvelteKit Application
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+## 1. Installing Nix and direnv
 
-## Creating a project
+> Jump to _**2. Clone the repository**_ if both `Nix` and `direnv` are already installed to your machine.
 
-If you're seeing this, you've probably already done this step. Congrats!
+### [`Nix`](https://nixos.org/)
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+A package manager. It's like Terraform for your machine.
 
-# create a new project in my-app
-npm create svelte@latest my-app
+```
+sh <(curl -L https://nixos.org/nix/install)
 ```
 
-## Developing
+### [direnv](https://direnv.net/)
+
+direnv sets a scope for each directory to have a unique environment.
+
+```
+curl -sfL https://direnv.net/install.sh | bash
+```
+
+## 2. Clone the repository
+
+```bash
+git clone git@github.com:kdaisho/hello-svelte.git
+```
+
+Once you've cloned this repo, Nix automatically starts installing each program listed in `shell.nix`. The environment is virtually limited within the directory where `.envrc` sits.
+
+You'll be prompted to type
+
+```
+direnv allow .
+```
+
+This lets `direnv` override the environment within the current and subdirectories.
+
+## 3. Developing
 
 Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
@@ -25,7 +47,7 @@ npm run dev
 npm run dev -- --open
 ```
 
-## Building
+## 4. Building
 
 To create a production version of your app:
 
@@ -36,3 +58,7 @@ npm run build
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+
+---
+
+_Note: `shell.nix` currently installs **node 16**. There's a compatibility issue with `fetch` api from SvelteKit and **node 18**._
