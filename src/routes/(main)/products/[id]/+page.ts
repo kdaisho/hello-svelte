@@ -1,9 +1,8 @@
-import { error, redirect } from '@sveltejs/kit';
+import { error, redirect, type LoadEvent } from '@sveltejs/kit';
 import api from '$lib/api';
 import { Method, HttpStatus } from '../../../../enums';
-import type { LoadParams } from 'src/types';
 
-export const load = async ({ fetch, params }: LoadParams) => {
+export const load = async ({ fetch, params }: LoadEvent) => {
 	const res = await api(fetch, Method.Get, `products/${params.id}`);
 
 	switch (res.status) {

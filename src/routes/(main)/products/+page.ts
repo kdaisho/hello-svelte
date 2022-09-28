@@ -1,9 +1,8 @@
-import { error } from '@sveltejs/kit';
+import { error, type LoadEvent } from '@sveltejs/kit';
 import api from '$lib/api';
-import type { LoadParams } from 'src/types';
 import { Method, HttpStatus } from '../../../enums';
 
-export const load = async ({ fetch }: Omit<LoadParams, 'params'>) => {
+export const load = async ({ fetch }: LoadEvent) => {
 	const res = await api(fetch, Method.Get, 'products');
 
 	switch (res.status) {

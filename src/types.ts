@@ -3,10 +3,3 @@ export type Product = {
 	name: string;
 	description: string;
 };
-
-export type LoadParams = {
-	fetch: typeof window.fetch;
-	params: {
-		id: string;
-	};
-};
