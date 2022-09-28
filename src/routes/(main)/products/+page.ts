@@ -1,9 +1,10 @@
 import { error } from '@sveltejs/kit';
 import api from '$lib/api';
+import type { LoadParams } from 'src/types';
 import { Method, HttpStatus } from '../../../enums';
 
-export const load = async () => {
-	const res = await api(Method.Get, 'products');
+export const load = async ({ fetch }: Omit<LoadParams, 'params'>) => {
+	const res = await api(fetch, Method.Get, 'products');
 
 	switch (res.status) {
 		case HttpStatus.NOT_FOUND:

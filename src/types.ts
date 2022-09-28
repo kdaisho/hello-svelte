@@ -4,7 +4,8 @@ export type Product = {
 	description: string;
 };
 
-export type Params = {
+export type LoadParams = {
+	fetch: typeof window.fetch;
 	params: {
 		id: string;
 	};

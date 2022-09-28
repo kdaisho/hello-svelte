@@ -24,7 +24,7 @@
 					<h3 class="name">{product.name}</h3>
 					<p>{product.description}</p>
 					<button class="btn-primary">
-						<a href="/products/{product.id}">Details</a>
+						<a href="/products/{product.id}" data-sveltekit-prefetch>Details</a>
 					</button>
 				</div>
 			{/each}

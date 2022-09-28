@@ -11,7 +11,7 @@
 </div>
 
 <div class="footer">
-	<a href="/products">← All products </a>
+	<a href="/products" data-sveltekit-prefetch>← All products</a>
 </div>
 
 <style lang="scss">
