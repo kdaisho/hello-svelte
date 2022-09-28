@@ -1,9 +1,10 @@
 import { error } from '@sveltejs/kit';
 import api from '$lib/api';
 import { Method } from '../../enums';
+import type { PageServerLoad } from './$types';
 
-export const load = async () => {
-	const res = await api(Method.Get);
+export const load: PageServerLoad = async ({ fetch }) => {
+	const res = await api(fetch, Method.Get);
 
 	if (res.status === 200) {
 		return {
