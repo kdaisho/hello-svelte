@@ -1,13 +1,11 @@
-FROM node:16.17.1-alpine3.16 AS builder
-
+FROM node:18.9.1-alpine3.15 AS builder
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
 COPY . .
 RUN npm run build && npm prune --production
 
-FROM node:16.17.1-alpine3.16
-
+FROM node:18.9.1-alpine3.15
 USER node:node
 WORKDIR /app
 COPY --from=builder --chown=node:node /app/build ./build

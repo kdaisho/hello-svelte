@@ -1,9 +1,9 @@
-import { error, type LoadEvent } from '@sveltejs/kit';
+import { error } from '@sveltejs/kit';
 import api from '$lib/api';
 import { Method, HttpStatus } from '../../../enums';
 
-export const load = async ({ fetch }: LoadEvent) => {
-	const res = await api(fetch, Method.Get, 'products');
+export const load = async () => {
+	const res = await api({ method: Method.Get, resource: 'products' });
 
 	switch (res.status) {
 		case HttpStatus.NOT_FOUND:

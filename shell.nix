@@ -4,7 +4,7 @@ let
 in
   pkgs2205.mkShell {
     buildInputs = [
-      pkgs2205.nodejs-16_x
+      pkgs2205.nodejs-18_x
       pkgsUnstable.docker-compose
     ];
   }
