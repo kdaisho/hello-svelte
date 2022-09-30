@@ -59,6 +59,26 @@ You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
 
----
+## 5. Dockerization
 
-_Note: `shell.nix` currently installs **node 16**. There's a compatibility issue with `fetch` api from SvelteKit and **node 18**._
+### Build an image
+
+```
+docker build -t sv:1 .
+```
+
+_sv = name, 1 = tag_
+
+### Run a container
+
+```
+docker run --rm --network=deno-net -p 5050:5050 sv:1
+```
+
+_--rm = cleans up after stopping the container_
+
+_-p = publish, 5050:5050 = maps port 5050 (right) to 5050 (left) to expose_
+
+_--network=deno-net = specifies to use 'deno-net' network defined by the server (deno) container_
+
+_to see list of networks, type `docker network ls`_
