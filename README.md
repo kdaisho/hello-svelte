@@ -1,42 +1,22 @@
 # SvelteKit Application
 
-## 1. Installing Nix and direnv
-
-> Jump to _**2. Clone the repository**_ if both `Nix` and `direnv` are already installed to your machine.
-
-### [`Nix`](https://nixos.org/)
-
-A package manager. It's like Terraform for your machine.
-
-```
-sh <(curl -L https://nixos.org/nix/install)
-```
-
-### [direnv](https://direnv.net/)
-
-direnv sets a scope for each directory to have a unique environment.
-
-```
-curl -sfL https://direnv.net/install.sh | bash
-```
-
-## 2. Clone the repository
+## Cloning the repository
 
 ```bash
-git clone git@github.com:kdaisho/hello-svelte.git
+git clone https://github.com/kdaisho/hello-svelte.git
 ```
 
-Once you've cloned this repo, Nix automatically starts installing each program listed in `shell.nix`. The environment is virtually limited within the directory where `.envrc` sits.
+Once cloned the repository, navigate into it. You'll be prompted to allow direnv to trigger dependency installation.
 
-You'll be prompted to type
+Type
 
 ```
 direnv allow .
 ```
 
-This lets `direnv` override the environment within the current and subdirectories.
+Nix automatically starts installing each dependency listed in `shell.nix`.
 
-## 3. Developing
+## Development
 
 Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
@@ -47,7 +27,7 @@ npm run dev
 npm run dev -- --open
 ```
 
-## 4. Building
+## Build
 
 To create a production version of your app:
 
@@ -59,9 +39,9 @@ You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
 
-## 5. Dockerization
+## Dockerization
 
-### Build an image
+### Building an image
 
 ```
 docker build -t sv:1 .
@@ -69,7 +49,7 @@ docker build -t sv:1 .
 
 _sv = name, 1 = tag_
 
-### Run a container
+### Running a container
 
 ```
 docker run --rm --network=deno-net -p 5050:5050 sv:1

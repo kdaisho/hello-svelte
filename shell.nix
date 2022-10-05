@@ -1,10 +1,9 @@
 let
-  pkgs2205 = import (fetchTarball "http://nixos.org/channels/nixos-22.05/nixexprs.tar.xz") {};
   pkgsUnstable = import (fetchTarball "http://nixos.org/channels/nixos-unstable/nixexprs.tar.xz") {};
 in
-  pkgs2205.mkShell {
+  pkgsUnstable.mkShell {
     buildInputs = [
-      pkgs2205.nodejs-18_x
+      pkgsUnstable.nodejs-18_x
       pkgsUnstable.docker-compose
     ];
   }
