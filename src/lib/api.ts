@@ -1,6 +1,6 @@
 import type { ApiParams } from 'src/types';
 
-const host = process.env.NODE_ENV === 'development' ? 'localhost' : 'deno-net';
+const host = process.env.NODE_ENV === 'development' ? '0.0.0.0' : 'deno-net';
 const port = 3009;
 
 const baseUrl = `http://${host}:${port}`;
