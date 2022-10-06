@@ -54,15 +54,15 @@
 			"dockerLabels": null,
 			"systemControls": null,
 			"privileged": null,
-			"name": "svelte-app-container"
+			"name": "svelte-app"
 		}
 	],
 	"placementConstraints": [],
 	"memory": "512",
 	"taskRoleArn": null,
 	"compatibilities": ["EC2", "FARGATE"],
-	"taskDefinitionArn": "arn:aws:ecs:ca-central-1:735571631348:task-definition/deno-app-definition:1",
-	"family": "deno-app-definition",
+	"taskDefinitionArn": "arn:aws:ecs:ca-central-1:735571631348:task-definition/svelte-app-definition:1",
+	"family": "svelte-app-definition",
 	"requiresAttributes": [
 		{
 			"targetId": null,
