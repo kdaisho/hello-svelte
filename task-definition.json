@@ -54,7 +54,7 @@
 			"dockerLabels": null,
 			"systemControls": null,
 			"privileged": null,
-			"name": "svelte-app"
+			"name": "svelte-app-container"
 		}
 	],
 	"placementConstraints": [],
