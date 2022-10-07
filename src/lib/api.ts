@@ -1,6 +1,7 @@
 import type { ApiParams } from 'src/types';
 
-const host = process.env.NODE_ENV === 'development' ? '0.0.0.0' : '35.183.5.18';
+const host =
+	process.env.NODE_ENV === 'development' ? '0.0.0.0' : 'hello-project-service-deno.local';
 const port = 3009;
 
 const baseUrl = `http://${host}:${port}`;
