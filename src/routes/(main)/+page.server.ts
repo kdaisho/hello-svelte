@@ -1,9 +1,9 @@
 import { error } from '@sveltejs/kit';
-import api from '$lib/api';
+import init from './api/init';
 import { Method } from '../../enums';
 
 export const load = async () => {
-	const res = await api({ method: Method.Get });
+	const res = await init({ method: Method.Get });
 
 	if (res.status === 200) {
 		return {

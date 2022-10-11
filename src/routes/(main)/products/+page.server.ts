@@ -1,9 +1,9 @@
 import { error } from '@sveltejs/kit';
-import api from '$lib/api';
+import init from '../api/init';
 import { Method, HttpStatus } from '../../../enums';
 
 export const load = async () => {
-	const res = await api({ method: Method.Get, resource: 'products' });
+	const res = await init({ method: Method.Get, resource: 'products' });
 
 	switch (res.status) {
 		case HttpStatus.NOT_FOUND:

@@ -1,9 +1,9 @@
 import { error, redirect, type LoadEvent } from '@sveltejs/kit';
-import api from '$lib/api';
+import init from '../../api/init';
 import { Method, HttpStatus } from '../../../../enums';
 
 export const load = async ({ params }: LoadEvent) => {
-	const res = await api({ method: Method.Get, resource: `products/${params.id}` });
+	const res = await init({ method: Method.Get, resource: `products/${params.id}` });
 
 	switch (res.status) {
 		case HttpStatus.NOT_FOUND:
