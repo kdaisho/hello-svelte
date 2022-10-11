@@ -1,11 +1,5 @@
-import Host from '../../api/host';
 import { json } from '@sveltejs/kit';
-
-const host = Host[process.env.NODE_ENV as keyof typeof Host];
-const port = 3009;
-const baseUrl = `http://${host}:${port}`;
-
-console.log({ baseUrl });
+import { baseUrl } from '../../api/host';
 
 export async function POST({ request }: { request: Request }) {
 	const { a, b } = await request.json();

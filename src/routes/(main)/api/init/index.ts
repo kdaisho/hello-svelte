@@ -1,11 +1,5 @@
-import Host from '../host';
+import { baseUrl } from '../../api/host';
 import type { ApiParams } from 'src/types';
-
-const host = Host[process.env.NODE_ENV as keyof typeof Host];
-const port = 3009;
-const baseUrl = `http://${host}:${port}`;
-
-console.log({ baseUrl });
 
 export default function init({ method, resource = '', data }: ApiParams) {
 	return fetch(`${baseUrl}/${resource}`, {

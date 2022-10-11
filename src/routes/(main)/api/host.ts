@@ -3,4 +3,6 @@ enum Host {
 	production = 'hello-project-service-deno.local'
 }
 
-export default Host;
+const host = Host[process.env.NODE_ENV as keyof typeof Host];
+const port = 3009;
+export const baseUrl = `http://${host}:${port}`;
