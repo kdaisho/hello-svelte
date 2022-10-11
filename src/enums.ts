@@ -1,5 +1,6 @@
 export enum Method {
-	Get = 'GET'
+	Get = 'GET',
+	Post = 'POST'
 }
 
 export enum HttpStatus {

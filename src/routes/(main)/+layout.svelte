@@ -28,40 +28,4 @@
 	<slot />
 </main>
 
-<style lang="scss">
-	header {
-		align-items: center;
-		background: var(--primary-color);
-		display: flex;
-		height: 50px;
-
-		.container {
-			display: flex;
-			flex-flow: row nowrap;
-			justify-content: space-between;
-		}
-
-		a {
-			color: #fff;
-		}
-
-		ul {
-			display: flex;
-			gap: 1rem;
-
-			li:hover {
-				text-decoration: underline;
-			}
-		}
-	}
-
-	.container {
-		margin: 0 auto;
-		max-width: 960px;
-		width: 100%;
-
-		&.is-body {
-			padding-top: 3rem;
-		}
-	}
-</style>
+<style src="./styles.scss"></style>

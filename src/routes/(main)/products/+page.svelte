@@ -32,15 +32,4 @@
 	{/if}
 </main>
 
-<style lang="scss">
-	.name {
-		font-size: var(--font-size-large);
-	}
-
-	.cards {
-		display: flex;
-		flex-flow: row wrap;
-		gap: 0.75rem;
-		padding: 1.5rem 0;
-	}
-</style>
+<style src="./styles.scss"></style>

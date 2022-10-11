@@ -1,13 +1,21 @@
 import { json } from '@sveltejs/kit';
-import { baseUrl } from '../../api/host';
+import { Method } from '../../../../enums';
+import api from '..';
+
+const root = 'about';
 
 export async function POST({ request }: { request: Request }) {
-	const { a, b } = await request.json();
-	return json(a + b);
+	return await api({
+		method: Method.Post,
+		resource: `${root}/add`,
+		data: await request.json()
+	});
 }
 
 export async function GET() {
-	const response = await fetch(`${baseUrl}/about/recipe`);
-	const data = await response.json();
-	return json(data);
+	const response = await api({
+		method: Method.Get,
+		resource: `${root}/recipe`
+	});
+	return json(await response.json());
 }

@@ -1,5 +1,5 @@
 import { error, redirect, type LoadEvent } from '@sveltejs/kit';
-import init from '../../api/init';
+import init from '../../api';
 import { Method, HttpStatus } from '../../../../enums';
 
 export const load = async ({ params }: LoadEvent) => {
