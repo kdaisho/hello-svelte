@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { Product } from '$types';
+	import { getTitle } from '$lib/utils';
 
 	export let data: {
 		products: Product[];
@@ -9,6 +10,10 @@
 	$: products = data.products;
 	$: error = data.error;
 </script>
+
+<svelte:head>
+	<title>{getTitle('Products')}</title>
+</svelte:head>
 
 <h1 class="title">Products</h1>
 

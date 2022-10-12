@@ -6,7 +6,7 @@
 <header>
 	<div class="container">
 		<h2>
-			<a href="/">Sample App</a>
+			<a href="/">Hello Project</a>
 		</h2>
 		<nav>
 			<ul>

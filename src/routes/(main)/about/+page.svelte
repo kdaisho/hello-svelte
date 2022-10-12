@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { Recipe } from './types';
+	import { getTitle } from '$lib/utils';
 
 	let a = 0;
 	let b = 0;
@@ -22,6 +23,10 @@
 		recipe = (await response.json()) as Recipe;
 	}
 </script>
+
+<svelte:head>
+	<title>{getTitle('About')}</title>
+</svelte:head>
 
 <h1 class="title">About Us</h1>
 
