@@ -1,5 +1,5 @@
+import { HttpStatus, Method } from '$types/enums';
 import { error } from '@sveltejs/kit';
-import { Method, HttpStatus } from '$types/enums';
 import init from '$routes/(main)/api';
 
 export const load = async () => {
@@ -15,7 +15,7 @@ export const load = async () => {
 			};
 		case HttpStatus.OK:
 			return {
-				products: await res.json()
+				products: (await res.json()) as Record<string, unknown>
 			};
 		default:
 			throw error(res.status);

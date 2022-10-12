@@ -1,8 +1,10 @@
 <script lang="ts">
+	import type { Recipe } from './types';
+
 	let a = 0;
 	let b = 0;
 	let total = 0;
-	let recipe: { title: string; ingredients: string; description: string };
+	let recipe: Recipe;
 
 	async function add() {
 		const response = await fetch('/api/about', {
@@ -12,12 +14,12 @@
 				'content-type': 'application/json'
 			}
 		});
-		total = await response.json();
+		total = (await response.json()) as number;
 	}
 
 	async function getRecipe() {
 		const response = await fetch('/api/about');
-		recipe = await response.json();
+		recipe = (await response.json()) as Recipe;
 	}
 </script>
 

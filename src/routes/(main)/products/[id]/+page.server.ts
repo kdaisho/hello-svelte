@@ -1,8 +1,8 @@
-import { error, redirect, type LoadEvent } from '@sveltejs/kit';
-import { Method, HttpStatus } from '$types/enums';
+import { HttpStatus, Method } from '$types/enums';
+import { error, redirect } from '@sveltejs/kit';
 import init from '$routes/(main)/api';
 
-export const load = async ({ params }: LoadEvent) => {
+export const load = async ({ params }: { params: { id: string } }) => {
 	const res = await init({ method: Method.Get, resource: `products/${params.id}` });
 
 	switch (res.status) {
@@ -11,7 +11,7 @@ export const load = async ({ params }: LoadEvent) => {
 			throw redirect(307, '/products');
 		case HttpStatus.OK:
 			return {
-				product: await res.json()
+				product: (await res.json()) as Record<string, unknown>
 			};
 		default:
 			throw error(res.status);

@@ -1,5 +1,5 @@
-import { error } from '@sveltejs/kit';
 import { Method } from '$types/enums';
+import { error } from '@sveltejs/kit';
 import init from '$routes/(main)/api';
 
 export const load = async () => {
@@ -7,7 +7,7 @@ export const load = async () => {
 
 	if (res.status === 200) {
 		return {
-			hello: await res.json()
+			hello: (await res.json()) as { message: string }
 		};
 	}
 
