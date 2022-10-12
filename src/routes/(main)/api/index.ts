@@ -1,5 +1,5 @@
 import { baseUrl } from './host';
-import type { ApiParams } from 'src/types';
+import type { ApiParams } from '$types';
 
 export default function api({ method, resource = '', data }: ApiParams) {
 	return fetch(`${baseUrl}/${resource}`, {

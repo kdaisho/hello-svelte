@@ -1,6 +1,6 @@
 import { json } from '@sveltejs/kit';
-import { Method } from '../../../../enums';
-import api from '..';
+import { Method } from '$types/enums';
+import api from '$routes/(main)/api';
 
 const root = 'about';
 

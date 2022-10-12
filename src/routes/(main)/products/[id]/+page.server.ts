@@ -1,6 +1,6 @@
 import { error, redirect, type LoadEvent } from '@sveltejs/kit';
-import init from '../../api';
-import { Method, HttpStatus } from '../../../../enums';
+import { Method, HttpStatus } from '$types/enums';
+import init from '$routes/(main)/api';
 
 export const load = async ({ params }: LoadEvent) => {
 	const res = await init({ method: Method.Get, resource: `products/${params.id}` });

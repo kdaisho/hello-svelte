@@ -1,6 +1,6 @@
 import { error } from '@sveltejs/kit';
-import init from './api';
-import { Method } from '../../enums';
+import { Method } from '$types/enums';
+import init from '$routes/(main)/api';
 
 export const load = async () => {
 	const res = await init({ method: Method.Get });

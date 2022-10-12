@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Product } from 'src/types';
+	import type { Product } from '$types';
 
 	export let data: { product: Product };
 	$: product = data.product;
