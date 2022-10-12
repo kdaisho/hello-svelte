@@ -26,7 +26,7 @@ module.exports = {
 	settings: {
 		'svelte3/typescript': true
 	},
-	ignorePatterns: ['.eslintrc.*'],
+	ignorePatterns: ['.eslintrc.*', 'svelte.config.*'],
 	// type-aware linting rules (dynamic linting)
 	parserOptions: {
 		tsconfigRootDir: __dirname,
