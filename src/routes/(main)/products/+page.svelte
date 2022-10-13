@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Product } from '$types';
-	import { getTitle } from '$lib/utils';
+	import { getDocumentTitle } from '$lib/utils';
 
 	export let data: {
 		products: Product[];
@@ -12,7 +12,7 @@
 </script>
 
 <svelte:head>
-	<title>{getTitle('Products')}</title>
+	<title>{getDocumentTitle('Products')}</title>
 </svelte:head>
 
 <h1 class="title">Products</h1>

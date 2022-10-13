@@ -1,3 +1,3 @@
-export const getTitle = (name: string) => {
+export const getDocumentTitle = (name: string) => {
 	return `Hello - ${name}`;
 };

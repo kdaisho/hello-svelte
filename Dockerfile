@@ -14,4 +14,4 @@ COPY --chown=node:node package.json .
 ENV PORT 5050
 ENV NODE_ENV=production
 EXPOSE 5050
-CMD ["node", "build"]
+CMD ["node", "build/index.js"]
