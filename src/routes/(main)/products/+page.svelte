@@ -6,9 +6,7 @@
 		products: Product[];
 		error: Error;
 	};
-
-	$: products = data.products;
-	$: error = data.error;
+	const { products, error } = data;
 </script>
 
 <svelte:head>
@@ -19,7 +17,7 @@
 
 <main>
 	{#if error}
-		<div>{error.message}</div>
+		<div>{error}</div>
 	{/if}
 
 	{#if products}

@@ -1,17 +1,22 @@
-// import type { Message } from 'src/hello';
-// import { client } from '$routes/(main)/connection';
+import client from '$routes/(main)/connection';
 
 export const load = async () => {
-	return await getProducts();
+	try {
+		return await getProducts();
+	} catch (error) {
+		return error;
+	}
 };
 
-async function getProducts() {
+function getProducts() {
 	return new Promise((resolve, reject) => {
-		// client.GetProducts({}, (err: Error, response: Message) => {
-		// 	if (err) {
-		// 		reject(err);
-		// 	}
-		// 	resolve(response);
-		// });
+		const result: PromiseLike<unknown> = client.request('getProducts');
+
+		// TODO: handle errors
+		if (result as unknown) {
+			return resolve({ products: result });
+		} else {
+			return reject({ error: 'Oops! something went wrong.' });
+		}
 	});
 }
