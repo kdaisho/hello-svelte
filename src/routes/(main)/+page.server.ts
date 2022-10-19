@@ -1,17 +1,23 @@
-import type { Message } from 'src/hello';
-import { client } from '$routes/(main)/connection';
+import client from '$routes/(main)/connection';
 
 export const load = async () => {
-	return await sayHello();
+	try {
+		return await sayHello();
+	} catch (error) {
+		return error;
+	}
 };
 
-async function sayHello() {
+function sayHello() {
 	return new Promise((resolve, reject) => {
-		client.SayHello({}, (err: Error, response: Message) => {
-			if (err) {
-				reject(err);
-			}
-			resolve({ hello: response });
+		const result: PromiseLike<unknown> = client.request('sayHello', {
+			greeting: 'Hello'
 		});
+
+		if (result as unknown as string) {
+			return resolve({ message: result });
+		} else {
+			return reject({ message: 'Oops! something went wrong.' });
+		}
 	});
 }

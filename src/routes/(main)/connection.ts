@@ -1,12 +1,19 @@
-import type { HelloPackage } from 'src/hello';
-import grpc from '@grpc/grpc-js';
-import protoLoader from '@grpc/proto-loader';
+import { JSONRPCClient, type JSONRPCResponse } from 'json-rpc-2.0';
 
-const packageDef = protoLoader.loadSync('proto/hello.proto', {});
-const grpcObject = grpc.loadPackageDefinition(packageDef);
-const helloPackage = grpcObject.helloPackage as HelloPackage;
+const client = new JSONRPCClient(async (request) => {
+	try {
+		const response = await fetch('http://0.0.0.0:3009', {
+			method: 'POST',
+			headers: {
+				'content-type': 'application/json'
+			},
+			body: JSON.stringify(request)
+		});
+		const data = (await response.json()) as JSONRPCResponse | JSONRPCResponse[];
+		client.receive(data);
+	} catch (err: Error | unknown) {
+		return Promise.reject(new Error(err as string));
+	}
+});
 
-export const client = new helloPackage.HelloService(
-	'localhost:3009',
-	grpc.credentials.createInsecure()
-);
+export default client;
