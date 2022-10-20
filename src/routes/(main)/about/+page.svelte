@@ -5,9 +5,11 @@
 	let a = 0;
 	let b = 0;
 	let total = 0;
+	let errorSum: Error['message'];
 	let recipe: Recipe;
+	let errorRecipe: Error['message'];
 
-	async function add() {
+	async function sum() {
 		const response = await fetch('/api/about', {
 			method: 'POST',
 			body: JSON.stringify({ a, b }),
@@ -15,12 +17,19 @@
 				'content-type': 'application/json'
 			}
 		});
-		total = (await response.json()) as number;
+
+		({ total, errorSum } = (await response.json()) as {
+			total: number;
+			errorSum: Error['message'];
+		});
 	}
 
 	async function getRecipe() {
 		const response = await fetch('/api/about');
-		recipe = (await response.json()) as Recipe;
+		({ recipe, errorRecipe } = (await response.json()) as {
+			recipe: Recipe;
+			errorRecipe: Error['message'];
+		});
 	}
 </script>
 
@@ -37,16 +46,23 @@
 			<input type="number" bind:value={a} />
 			<input type="number" bind:value={b} />
 		</div>
-		<button class="btn-primary is-api" on:click={add}>Calculate</button>
+
+		<button class="btn-primary is-api" on:click={sum}>Calculate</button>
+
 		<div class="result">
-			Result: {total}
+			Result: {Number.isInteger(total) ? total : errorSum}
 		</div>
 	</div>
 
 	<div class="card">
-		<button class="btn-primary is-api" on:click={getRecipe}>Get Recipe</button>
+		<button class="btn-primary is-api" on:click={getRecipe}>HEY Get Recipe</button>
 		<div class="result">
 			Recipe
+
+			{#if errorRecipe}
+				<p>{errorRecipe}</p>
+			{/if}
+
 			{#if recipe}
 				<ul>
 					<li>

@@ -3,3 +3,8 @@ export type Recipe = {
 	ingredients: string;
 	description: string;
 };
+
+export type SumArgs = {
+	a: number;
+	b: number;
+};
