@@ -1,14 +1,15 @@
 <script lang="ts">
-	import type { Product } from '$types';
+	import type { Product } from '../types';
 
-	export let data: { product: Product };
-	$: product = data.product;
+	export let data: Product;
 </script>
 
-<div class="card">
-	<h1 class="title">{product.name}</h1>
-	<p>{product.description}</p>
-</div>
+{#if 'name' in data}
+	<div class="card">
+		<h1 class="title">{data.name}</h1>
+		<p>{data.description}</p>
+	</div>
+{/if}
 
 <div class="footer">
 	<a href="/products" data-sveltekit-prefetch>← All products</a>

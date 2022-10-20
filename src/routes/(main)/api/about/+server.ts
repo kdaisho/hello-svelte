@@ -1,9 +1,4 @@
-// import { Method } from '$types/enums';
-// import api from '$routes/(main)/api';
-// import { json } from '@sveltejs/kit';
-
 import type { Recipe, SumArgs } from '$routes/(main)/about/types';
-
 import client from '$routes/(main)/connection';
 
 const error = new Error('Oops! something went wrong.');

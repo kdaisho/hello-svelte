@@ -8,7 +8,6 @@ const config: UserConfig = {
 	resolve: {
 		alias: {
 			$routes: path.resolve('./src/routes'),
-			$types: path.resolve('./src/types'),
 			$styles: path.resolve('./src/styles')
 		}
 	}
